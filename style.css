@@ -1,0 +1,210 @@
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    color: #563c5c;
+    margin-top: 20px;
+    margin-bottom: 18px;
+}
+
+.line {
+    border: none;
+    height: 6px;
+    background-color: #563c5c;
+}
+
+.p1 {
+    text-align: center;
+    margin-bottom: 28px;
+    color: #563c5c;
+    font-weight: bolder;
+    font-size: large;
+}
+
+h2 {
+    color: #563c5c;
+    font-size: medium;
+    margin-left: 17px;
+    margin-bottom: 10px;
+}
+
+.cute {
+    text-decoration: underline;
+    font-size: large;
+}
+
+img {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+    border: 1px solid #563c5c;
+    background-color: white;
+    margin-left: 6px;
+    margin-bottom: 5px;
+}
+
+.price {
+    margin-left: 65px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #563c5c;
+    font-size: large;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+}
+
+.products {
+    margin-left: 8px;
+    margin-top: 2px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    width: 200px;
+    padding-top: 10px;
+    padding-left: 6px;
+    padding-right: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #f2bdcd;
+    border: none;
+    margin-left: 58px;
+    margin-top: 10px;
+    padding: 6px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn:active {
+    opacity: 0.5;
+}
+
+.products:hover {
+    box-shadow: 0 2px 5px;
+}
+
+body {
+    background-color: #ef86c1;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    /* ضروري باش الـ padding ما يخرجش الإطار */
+}
+
+.section-title {
+    color: #563c5c;
+    font-weight: bold;
+    margin-bottom: 6px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* تعديل زر التأكيد ليكون في وسط الإطار تماماً وبدون خروج */
+.submit-btn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #efaed3;
+    border-radius: 5px;
+    border-color: #ef86c1;
+    border: 1px solid;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.options {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.info {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+    box-shadow: 0 0 4px;
+}
+
+.submit-btn:active {
+    opacity: 0.6;
+}
+
+/* توسيط صورة المنتج داخل الإطار الأبيض */
+.product-img {
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+/* توسيط سعر المنتج ليجي تحت الصورة في الوسط */
+.product-price {
+    text-align: center;
+    font-weight: bold;
+    color: #563c5c;
+    margin-bottom: 15px;
+    font-size: large;
+}
+
+.delprice {
+    margin-top: 7px;
+    color: #563c5c;
+    font-weight: bold;
+}
+
+.info input,
+.info select {
+    width: 100%;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* إخفاء الدوائر القديمة */
+.options input[type="radio"] {
+    display: none;
+}
+
+/* تصميم المربعات أو الأزرار للخيارات */
+.options label {
+    display: inline-block;
+    background-color: #fff;
+    padding: 6px 12px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #563c5c;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #612740;
+}
+
+/* شكل الزر لما يتم اختياره */
+.options label:has(input[type="radio"]:checked) {
+    background-color: #efaed3;
+    border-color: #612740;
+    color: #612740;
+}

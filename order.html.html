@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>confirm order</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color:#f2bdcd ;">
+    <div class="container">
+        <img id="productImg" class="product-img">
+        <div id="productPrice" class="product-price"></div>
+        <form id="orderForm">
+            <!--اختيار اللون-->
+            <div class="section-title"> choose color :</div>
+            <div class="options">
+                <label> <input type="radio" name="color" value="pink" checked><span>pink</span></label>
+                <label> <input type="radio" name="color" value="blue" checked><span>blue</span></label>
+                <label> <input type="radio" name="color" value="burguendy" checked><span>burguendy</span></label>
+            </div>
+            <div class="section-title">choose size :</div>
+            <div class="options">
+                <label><input type="radio" name="size" value="S" checked><span>S</span></label>
+                <label> <input type="radio" name="size" value="M" checked><span>M</span></label>
+                <label> <input type="radio" name="size" value="L" checked><span>L</span></label>
+                <label> <input type="radio" name="size" value="XL" checked><span>XL</span></label>
+            </div>
+            <div class="section-title">peronal info</div>
+            <div class="info">
+                <label class="space">your full name</label> <br>
+                <input type="text" id="fullname" required placeholder="enter your name"><br>
+            </div>
+            <div class="info">
+                <label class="space">your number</label> <br>
+                <input type="tel" id="phone" required placeholder="enter your number">
+            </div>
+            <div class="info">
+                <label>wilaya</label>
+                <select id="wilaya" required onchange="updateshipp()">
+                    <option value="">choose wilaya</option>
+                    <option value="batna">batna</option>
+                    <option value="algeirs">algeirs</option>
+                    <option value="oran">oran</option>
+                    <option value="setif">setif</option>
+                    <option value="biskra">biskra</option>
+                    <option value="skikda">skikda</option>
+                    <option value="bjaya">bjaya</option>
+                </select>
+            </div>
+            <div class="info">
+                <label>delivery place</label>
+                <select id="delivery" required onchange="updateshipp()">
+                    <option value="home">home</option>
+                    <option value="office">office</option>
+                </select>
+                <div class="delprice">
+                    <div>delivery price : <strong id="shippPrice">0 DA</strong></div>
+                    <DIv>total price : <strong id="totalPrice" style="color:#563c5c ;font-size: large;"></strong></DIv>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">
+                confirm order
+            </button>
+        </form>
+    </div>
+    <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const imgSrc = urlParams.get('img');
+        const basePrice = parseInt(urlParams.get('price'));
+
+        document.getElementById('productImg').src = imgSrc;
+        document.getElementById('productPrice').innerText = basePrice + " DA";
+        const rates = {
+            algiers: {home: 700, office: 600},
+            oran: {home: 700, office: 600},
+            batna: {home: 600, office: 500},
+            setif: {home: 700, office: 600},
+            biskra: {home: 600, office: 500},
+            bjaya: {home: 700, office: 600},
+            skikda: {home: 700, office: 600},
+        };
+        const wilaya = document.getElementById('wilaya').value;
+        const deliveryType = document.getElementById('delivery').value;
+
+        function updateshipp() {
+            const wilaya = document.getElementById('wilaya').value;
+            const delivery = document.getElementById('delivery').value;
+
+            if (!wilaya) {
+                document.getElementById('shippPrice').innerText = "0 DA";
+                document.getElementById('totalPrice').innerText = basePrice + " DA";
+                return;
+            }
+
+            const shippCost = rates[wilaya][delivery];
+            const total = basePrice + shippCost;
+
+            document.getElementById('shippPrice').innerText = shippCost + " DA";
+            document.getElementById('totalPrice').innerText = total + " DA";
+
+        }
+        document.getElementById('orderForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // نمنع إعادة تحميل الصفحة
+
+
+            const color = document.querySelector('input[name="color"]:checked').value;
+            const size = document.querySelector('input[name="size"]:checked').value;
+            const fullname = document.getElementById('fullname').value;
+            const phone = document.getElementById('phone').value;
+            const wilaya = document.getElementById('wilaya').options[document.getElementById('wilaya').selectedIndex].text;
+            const delivery = document.getElementById('delivery').options[document.getElementById('delivery').selectedIndex].text;
+            const totalPrice = document.getElementById('totalPrice').innerText;
+            const imgSrc = document.getElementById('productImg').src;
+        });
+
+    </script>
+</body>
+
+</html>
